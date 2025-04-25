@@ -14,5 +14,10 @@ fclean: clean
 
 re: fclean all
 
+${NAME}: ${OBJ}
+	${CC} ${CFLAGS} ${OBJ} -o ${NAME}
+
+%.o: %.c
+	${CC} ${CFLAGS} -c $< -o $@
 
 .PHONY: all re clean fclean
