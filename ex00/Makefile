@@ -1,7 +1,7 @@
 NAME := claptrap
 CC := c++
 CFLAGS := -Wall -Werror -Wextra -std=c++98
-SRC := main.cpp ClapTrap.cpp
+SRC := ClapTrap.cpp main.cpp
 OBJ := ${SRC:.cpp=.o}
 
 all: ${NAME}
@@ -17,7 +17,7 @@ re: fclean all
 ${NAME}: ${OBJ}
 	${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 
-%.o: %.c
+%.o: %.cpp
 	${CC} ${CFLAGS} -c $< -o $@
 
 .PHONY: all re clean fclean
