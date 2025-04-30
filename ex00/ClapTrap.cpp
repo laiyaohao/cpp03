@@ -5,7 +5,7 @@ ClapTrap::ClapTrap()
   setHitPoints(10);
   setEnergyPoints(10);
   setAttackDamage(0);
-  std::cout << "Default constructor called" << std::endl;
+  std::cout << "ClapTrap Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -14,18 +14,18 @@ ClapTrap::ClapTrap(std::string name)
   setHitPoints(10);
   setEnergyPoints(10);
   setAttackDamage(0);
-  std::cout << "Parameterized constructor called" << std::endl;
+  std::cout << "ClapTrap Parameterized constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
-  std::cout << "Copy constructor called" << std::endl;
+  std::cout << "ClapTrap Copy constructor called" << std::endl;
   *this = other;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
-  std::cout << "Copy assignment operator called" << std::endl;
+  std::cout << "ClapTrap Copy assignment operator called" << std::endl;
   if (this != &other)
   {
     setName(other.getName());
@@ -94,7 +94,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
   if (getHitPoints() > 0)
   {
-    if (getHitPoints() - amount > 0)
+    if ((int)(getHitPoints() - amount) > 0)
     {
       std::cout << "ClapTrap " << getName() << " takes " << amount << " points of damage!" << std::endl;
       setHitPoints(getHitPoints() - amount);
