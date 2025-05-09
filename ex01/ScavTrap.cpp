@@ -41,6 +41,11 @@ ScavTrap::~ScavTrap()
   std::cout << "ScavTrap destructor called" << std::endl;
 }
 
+unsigned int ScavTrap::getOriginalHitPoints() const
+{
+  return 100;
+}
+
 void ScavTrap::attack(const std::string &target)
 {
   if (getHitPoints() > 0 && getEnergyPoints() > 0)

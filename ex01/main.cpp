@@ -44,7 +44,8 @@ int main(void)
     a.takeDamage(a.getAttackDamage());  
   }
   std::cout << "testing A recovering itself" << std::endl;
-  a.beRepaired(100);
+  a.beRepaired(1000);
+  std::cout << "a's hit points: " << a.getHitPoints() << std::endl;
   std::cout << "end of testing of A recovering itself" << std::endl;
   std::cout << "Ending scenerio of A attacking B, B repairing itself and attacking back " << std::endl;
   std::cout << std::endl;

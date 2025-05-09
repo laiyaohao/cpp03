@@ -51,34 +51,39 @@ void ClapTrap::setName(std::string newName)
   name = newName;
 }
 
-int ClapTrap::getHitPoints() const
+unsigned int ClapTrap::getHitPoints() const
 {
   return hitPoints;
 }
 
-void ClapTrap::setHitPoints(int newHitPoints)
+void ClapTrap::setHitPoints(unsigned int newHitPoints)
 {
   hitPoints = newHitPoints;
 }
 
-int ClapTrap::getEnergyPoints() const
+unsigned int ClapTrap::getEnergyPoints() const
 {
   return energyPoints;
 }
 
-void ClapTrap::setEnergyPoints(int newEnergyPoints)
+void ClapTrap::setEnergyPoints(unsigned int newEnergyPoints)
 {
   energyPoints = newEnergyPoints;
 }
 
-int ClapTrap::getAttackDamage() const
+unsigned int ClapTrap::getAttackDamage() const
 {
   return attackDamage;
 }
 
-void ClapTrap::setAttackDamage(int newAttackDamage)
+void ClapTrap::setAttackDamage(unsigned int newAttackDamage)
 {
   attackDamage = newAttackDamage;
+}
+
+unsigned int ClapTrap::getOriginalHitPoints() const
+{
+  return 10;
 }
 
 void ClapTrap::attack(const std::string &target)
@@ -111,8 +116,16 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
   if (getHitPoints() > 0 && getEnergyPoints() > 0)
   {
-    std::cout << "ClapTrap " << getName() << " is repaired for " << amount << " hit points!" << std::endl;
-    setHitPoints(getHitPoints() + amount);
+    if (getHitPoints() + amount > getOriginalHitPoints())
+    {
+      std::cout << "ClapTrap " << getName() << " is repaired for " << getOriginalHitPoints() - getHitPoints() << " hit points!" << std::endl;
+      setHitPoints(getOriginalHitPoints());
+    }
+    else
+    {
+      std::cout << "ClapTrap " << getName() << " is repaired for " << amount << " hit points!" << std::endl;
+      setHitPoints(getHitPoints() + amount);
+    }
     setEnergyPoints(getEnergyPoints() - 1);
   }
 }

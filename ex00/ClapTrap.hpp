@@ -7,9 +7,9 @@ class ClapTrap
 {
   private:
     std::string name;
-    int hitPoints;
-    int energyPoints;
-    int attackDamage;
+    unsigned int hitPoints;
+    unsigned int energyPoints;
+    unsigned int attackDamage;
 
   public:
     // Orthodox Canonical Form
@@ -21,12 +21,13 @@ class ClapTrap
     // Getters and Setters
     std::string getName() const;
     void setName(std::string name);
-    int getHitPoints() const;
-    void setHitPoints(int newHitPoints);
-    int getEnergyPoints() const;
-    void setEnergyPoints(int newEnergyPoints);
-    int getAttackDamage() const;
-    void setAttackDamage(int newAttackDamage);
+    unsigned int getHitPoints() const;
+    void setHitPoints(unsigned int newHitPoints);
+    unsigned int getEnergyPoints() const;
+    void setEnergyPoints(unsigned int newEnergyPoints);
+    unsigned int getAttackDamage() const;
+    void setAttackDamage(unsigned int newAttackDamage);
+    unsigned int getOriginalHitPoints() const;
 
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);

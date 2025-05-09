@@ -23,7 +23,7 @@ int main(void)
   b.takeDamage(a.getAttackDamage());
   for (int i = 0; i < 9; i++)
   {
-    b.beRepaired(0);
+    b.beRepaired(10);
   }
   b.attack(a.getName());
 
