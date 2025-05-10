@@ -36,7 +36,7 @@ int main(void)
   b.takeDamage(a.getAttackDamage());
   for (int i = 0; i < 9; i++)
   {
-    b.beRepaired(0);
+    b.beRepaired(100);
   }
   for (int i = 0; i < 6; i++)
   {
@@ -44,7 +44,7 @@ int main(void)
     a.takeDamage(a.getAttackDamage());  
   }
   std::cout << "testing A recovering itself" << std::endl;
-  a.beRepaired(1000);
+  a.beRepaired(100);
   std::cout << "a's hit points: " << a.getHitPoints() << std::endl;
   std::cout << "end of testing of A recovering itself" << std::endl;
   std::cout << "Ending scenerio of A attacking B, B repairing itself and attacking back " << std::endl;

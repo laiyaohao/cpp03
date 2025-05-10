@@ -26,6 +26,8 @@ int main(void)
     b.beRepaired(10);
   }
   b.attack(a.getName());
+  // testing no energy
+  b.attack(a.getName());
 
   ClapTrap e = b;
   std::cout << a.getName() << " has " << a.getEnergyPoints() << " energy points" << std::endl;

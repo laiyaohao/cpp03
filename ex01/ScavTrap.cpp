@@ -41,17 +41,20 @@ ScavTrap::~ScavTrap()
   std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-unsigned int ScavTrap::getOriginalHitPoints() const
-{
-  return 100;
-}
-
 void ScavTrap::attack(const std::string &target)
 {
   if (getHitPoints() > 0 && getEnergyPoints() > 0)
   {
     std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
     setEnergyPoints(getEnergyPoints() - 1);
+  }
+  else if (getHitPoints() <= 0)
+  {
+    std::cout << "ClapTrap " << getName() << " is dead" << std::endl;
+  }
+  else if (getEnergyPoints() <= 0)
+  {
+    std::cout << "ClapTrap " << getName() << " has no energy points" << std::endl;
   }
 }
 

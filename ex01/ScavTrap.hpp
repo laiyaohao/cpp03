@@ -13,7 +13,6 @@ class ScavTrap : public ClapTrap
     ScavTrap &operator=(const ScavTrap &other);
     ~ScavTrap();
 
-    unsigned int getOriginalHitPoints() const;
     void attack(const std::string &target);
     void guardGate();
 };
