@@ -19,14 +19,14 @@ class ClapTrap
     ClapTrap &operator=(const ClapTrap &other);
     ~ClapTrap();
     // Getters and Setters
-    std::string getName() const;
-    void setName(std::string name);
-    unsigned int getHitPoints() const;
-    void setHitPoints(unsigned int newHitPoints);
-    unsigned int getEnergyPoints() const;
-    void setEnergyPoints(unsigned int newEnergyPoints);
-    unsigned int getAttackDamage() const;
-    void setAttackDamage(unsigned int newAttackDamage);
+    const std::string& getName() const;
+    void setName(const std::string& name);
+    const unsigned int& getHitPoints() const;
+    void setHitPoints(const unsigned int& newHitPoints);
+    const unsigned int& getEnergyPoints() const;
+    void setEnergyPoints(const unsigned int& newEnergyPoints);
+    const unsigned int& getAttackDamage() const;
+    void setAttackDamage(const unsigned int& newAttackDamage);
 
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);

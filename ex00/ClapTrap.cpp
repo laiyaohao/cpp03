@@ -41,42 +41,42 @@ ClapTrap::~ClapTrap()
   std::cout << "ClapTrap destructor called" << std::endl;
 }
 
-std::string ClapTrap::getName() const
+const std::string& ClapTrap::getName() const
 {
   return name;
 }
 
-void ClapTrap::setName(std::string newName)
+void ClapTrap::setName(const std::string& newName)
 {
   name = newName;
 }
 
-unsigned int ClapTrap::getHitPoints() const
+const unsigned int& ClapTrap::getHitPoints() const
 {
   return hitPoints;
 }
 
-void ClapTrap::setHitPoints(unsigned int newHitPoints)
+void ClapTrap::setHitPoints(const unsigned int& newHitPoints)
 {
   hitPoints = newHitPoints;
 }
 
-unsigned int ClapTrap::getEnergyPoints() const
+const unsigned int& ClapTrap::getEnergyPoints() const
 {
   return energyPoints;
 }
 
-void ClapTrap::setEnergyPoints(unsigned int newEnergyPoints)
+void ClapTrap::setEnergyPoints(const unsigned int& newEnergyPoints)
 {
   energyPoints = newEnergyPoints;
 }
 
-unsigned int ClapTrap::getAttackDamage() const
+const unsigned int& ClapTrap::getAttackDamage() const
 {
   return attackDamage;
 }
 
-void ClapTrap::setAttackDamage(unsigned int newAttackDamage)
+void ClapTrap::setAttackDamage(const unsigned int& newAttackDamage)
 {
   attackDamage = newAttackDamage;
 }
@@ -87,6 +87,8 @@ void ClapTrap::attack(const std::string &target)
   {
     std::cout << "ClapTrap " << getName() << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
     setEnergyPoints(getEnergyPoints() - 1);
+    // below code is also acceptable
+    // energyPoints--;
   }
   else if (getHitPoints() <= 0)
   {
@@ -102,7 +104,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
   if (getHitPoints() > 0 && getEnergyPoints() > 0)
   {
-    if ((getHitPoints() - amount) > 0)
+    if ((int)(getHitPoints() - amount) > 0)
     {
       std::cout << "ClapTrap " << getName() << " takes " << amount << " points of damage!" << std::endl;
       setHitPoints(getHitPoints() - amount);

@@ -32,6 +32,8 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
     setHitPoints(other.getHitPoints());
     setEnergyPoints(other.getEnergyPoints());
     setAttackDamage(other.getAttackDamage());
+    // below code is also acceptable
+    // ClapTrap::operator=(other);
   }
   return *this;
 }
